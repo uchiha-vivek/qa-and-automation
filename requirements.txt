@@ -1,0 +1,4 @@
+fastapi==0.115.6
+uvicorn==0.34.0
+# Optional, only for LLM_MODE=claude
+# anthropic

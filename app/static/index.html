@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TriageBot</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>TriageBot</h1>
+    <span id="version" data-testid="app-version"></span>
+  </header>
+
+  <main>
+    <section class="card" id="new-ticket">
+      <h2>New ticket</h2>
+      <form id="ticket-form" data-testid="ticket-form">
+        <label>Customer name <input name="customer_name" data-testid="input-name" required></label>
+        <label>Email <input name="email" data-testid="input-email"></label>
+        <label>Subject <input name="subject" data-testid="input-subject"></label>
+        <label>Message <textarea name="message" rows="5" data-testid="input-message"></textarea></label>
+        <button type="submit" id="submit-btn" data-testid="submit-btn">Submit &amp; triage</button>
+        <p id="form-status" data-testid="form-status"></p>
+      </form>
+    </section>
+
+    <section class="card" id="tickets">
+      <h2>Tickets</h2>
+      <div class="filters">
+        <select id="filter-priority" data-testid="filter-priority">
+          <option value="">All priorities</option>
+          <option>P1</option><option>P2</option><option>P3</option><option>P4</option>
+        </select>
+        <select id="filter-category" data-testid="filter-category">
+          <option value="">All categories</option>
+          <option>billing</option><option>technical</option><option>account</option>
+          <option>shipping</option><option>general</option>
+        </select>
+        <input id="search" placeholder="Search..." data-testid="search">
+        <button id="refresh" data-testid="refresh-btn">Refresh</button>
+      </div>
+      <table>
+        <thead>
+          <tr><th>#</th><th>Subject</th><th>Category</th><th>Priority</th><th>Sentiment</th><th>Confidence</th><th>Created</th></tr>
+        </thead>
+        <tbody id="ticket-rows" data-testid="ticket-rows"></tbody>
+      </table>
+      <p id="metrics" data-testid="metrics"></p>
+    </section>
+
+    <section class="card hidden" id="detail" data-testid="ticket-detail">
+      <h2>Ticket <span id="detail-id"></span></h2>
+      <div id="detail-body"></div>
+      <h3>Override AI decision</h3>
+      <form id="override-form" data-testid="override-form">
+        <select name="priority" data-testid="override-priority">
+          <option value="">(keep priority)</option>
+          <option>P1</option><option>P2</option><option>P3</option><option>P4</option>
+        </select>
+        <select name="category" data-testid="override-category">
+          <option value="">(keep category)</option>
+          <option>billing</option><option>technical</option><option>account</option>
+          <option>shipping</option><option>general</option>
+        </select>
+        <input name="agent_name" placeholder="Your name" data-testid="override-agent">
+        <button type="submit" data-testid="override-btn">Save override</button>
+      </form>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>

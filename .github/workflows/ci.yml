@@ -1,0 +1,22 @@
+name: QA pipeline
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # TODO (Day 9):
+      # 1. Install requirements.txt and submissions/automation/requirements-test.txt
+      # 2. Install the Playwright browser:  playwright install --with-deps chromium
+      # 3. Start the app in the background and wait until /api/health responds
+      # 4. Run pytest with an HTML report:  pytest submissions/automation --html=reports/report.html --self-contained-html
+      # 5. Upload reports/ as an artifact (always, even if tests fail)
+      - run: echo "Complete this pipeline"

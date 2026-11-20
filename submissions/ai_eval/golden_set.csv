@@ -1,0 +1,4 @@
+id,language,message,expected_category,expected_priority,notes
+G001,en,I was charged twice for my order and I want my money back now,billing,P1,double charge = P1 per AI-01
+G002,en,How can I change the email address on my profile?,account,P4,how-to without impact
+G003,hi,मेरा अकाउंट हैक हो गया है और किसी ने मेरा पासवर्ड बदल दिया,account,P1,hacked account in Hindi
